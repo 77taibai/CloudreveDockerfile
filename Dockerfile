@@ -12,7 +12,7 @@ RUN apk update \
 
     && apk add wget \
 
-    && wget https://github.com/cloudreve/Cloudreve/releases/download/3.8.0/cloudreve_3.8.0_linux_amd64.tar.gz \
+    && wget https://github.com/cloudreve/Cloudreve/releases/download/3.8.3/cloudreve_3.8.3_linux_amd64.tar.gz \
 
     && tar -zxvf ./cloudreve_3.8.0_linux_amd64.tar.gz \
 
