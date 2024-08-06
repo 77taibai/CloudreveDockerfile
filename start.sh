@@ -1,3 +1,5 @@
+uname -a
+
 cat > /cloudreve/pgbouncer.ini <<-EOF
 [databases]
 koyebdb = $DB_HOST port=$DB_PORT dbname=$DB_NAME user=$DB_USER
@@ -24,6 +26,8 @@ cat > /cloudreve/userlist.txt <<-EOF
 "$DB_USER" "$DB_PASSWORD"
 EOF
 
+echo "PgBouncer配置文件创建完毕"
+
 touch /cloudreve/pgbouncer.log
 
 chmod 777 /cloudreve/pgbouncer.log
@@ -32,7 +36,11 @@ touch /cloudreve/pgbouncer.pid
 
 chmod 777 /cloudreve/pgbouncer.pid
 
+echo "PgBouncer依赖文件创建完毕"
+
 pgbouncer -R -d /cloudreve/pgbouncer.ini
+
+echo "PgBouncer开始运行"
 
 cat > /cloudreve/conf.ini <<-EOF
 [System]
@@ -53,5 +61,7 @@ Charset = utf8
 EOF
 
 chmod +x /cloudreve/cloudreve
+
+echo "准备运行Cloudreve"
 
 ./cloudreve
