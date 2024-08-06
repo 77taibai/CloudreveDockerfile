@@ -1,3 +1,5 @@
+#!/bin/bash
+
 uname -a
 
 cat > /cloudreve/pgbouncer.ini <<-EOF
