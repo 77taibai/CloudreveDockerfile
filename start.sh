@@ -25,6 +25,9 @@ server_tls_sslmode=require
 server_lifetime = 15
 server_connect_timeout = 15
 server_reset_query = ""
+server_check_query = ""
+server_idle_timeout = 15
+max_db_connections = 5
 EOF
 
 cat > /cloudreve/userlist.txt <<-EOF
