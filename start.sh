@@ -22,6 +22,9 @@ dns_max_ttl = 15
 ignore_startup_parameters = extra_float_digits 
 client_tls_sslmode=disable
 server_tls_sslmode=require
+server_lifetime = 15
+server_connect_timeout = 15
+server_reset_query = ""
 EOF
 
 cat > /cloudreve/userlist.txt <<-EOF
