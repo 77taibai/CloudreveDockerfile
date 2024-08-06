@@ -7,17 +7,14 @@ cat > /cloudreve/pgbouncer.ini <<-EOF
 koyebdb = $DB_HOST port=$DB_PORT dbname=$DB_NAME user=$DB_USER
 
 [pgbouncer]
-listen_port = 7721
-listen_addr = 127.0.0.1
+listen_port = 37721
+listen_addr = 0.0.0.0
 auth_type = md5
 auth_file = /cloudreve/userlist.txt
 logfile = /cloudreve/pgbouncer.log
 pidfile = /cloudreve/pgbouncer.pid
 admin_users = postgres
 stats_users = pgmon
-server_reset_query = DISCARD ALL
-server_check_query = select 1
-server_check_delay = 30
 max_client_conn = 80
 default_pool_size = 20
 reserve_pool_size = 5
@@ -40,6 +37,8 @@ chmod 777 /cloudreve/pgbouncer.pid
 
 echo "PgBouncer依赖文件创建完毕"
 
+pgbouncer -d /cloudreve/pgbouncer.ini
+
 pgbouncer -R -d /cloudreve/pgbouncer.ini
 
 echo "PgBouncer开始运行"
@@ -53,7 +52,7 @@ SessionSecret = DR3c3K0P6ei6rLJDm8ffNdV4uLs2jAXnOvWDmmDPW7C5KhYtuRijM6N6x8KJMqcc
 HashIDSalt = 4brAt3NOAOmNo79S0OoU3BADYVRSrrEuRbrudTSLPDHNQ25C2UN3cwsPfJMA0wUr
 [Database]
 Type = postgres
-Port = 7721
+Port = 37721
 User = $DB_USER
 Password = $DB_PASSWORD
 Host = 127.0.0.1
