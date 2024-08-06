@@ -1,10 +1,10 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 WORKDIR /cloudreve
 
 RUN apk update \
 
-    && apk add --no-cache tzdata wget \
+    && apk add --no-cache tzdata wget pgbouncer libpq-dev \
 
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 
@@ -14,8 +14,8 @@ RUN apk update \
 
     && tar -zxvf ./cloudreve_3.8.3_linux_amd64.tar.gz \
 
-    && chmod +x ./cloudreve
+    && chmod +x ./start.sh
 
 EXPOSE 5212
 
-ENTRYPOINT ["./cloudreve"]
+ENTRYPOINT ["/cloudreve/start.sh"]
