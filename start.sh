@@ -39,9 +39,9 @@ echo "PgBouncer依赖文件创建完毕"
 
 pgbouncer --version
 
-pgbouncer -d /cloudreve/pgbouncer.ini
+pgbouncer -d -u nobody /cloudreve/pgbouncer.ini
 
-pgbouncer -R -d /cloudreve/pgbouncer.ini
+pgbouncer -R -d -u nobody /cloudreve/pgbouncer.ini
 
 echo "PgBouncer开始运行"
 
