@@ -35,11 +35,13 @@ echo "PgBouncer依赖文件创建完毕"
 
 pgbouncer --version
 
-pgbouncer -d -u nobody /cloudreve/pgbouncer.ini
+#pgbouncer -d -u nobody /cloudreve/pgbouncer.ini
 
-pgbouncer -R -d -u nobody /cloudreve/pgbouncer.ini
+#pgbouncer -R -d -u nobody /cloudreve/pgbouncer.ini
 
 echo "PgBouncer开始运行"
+
+pgbouncer -R -u nobody /cloudreve/pgbouncer.ini
 
 cat > /cloudreve/conf.ini <<-EOF
 [System]
@@ -63,4 +65,4 @@ chmod +x /cloudreve/cloudreve
 
 echo "准备运行Cloudreve"
 
-./cloudreve
+#./cloudreve
