@@ -1,14 +1,16 @@
-FROM ubuntu:22.04
+FROM alpine:latest
 
 WORKDIR /cloudreve
 
 COPY . .
 
-RUN apt update \
+RUN apk update \
     
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata pgbouncer dos2unix libpq-dev \
+    && apk add tzdata pgbouncer dos2unix libpq-dev \
 
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+
+    && echo "Asia/Shanghai" > /etc/timezone \
 
     && tar -zxvf ./cloudreve_3.8.3_linux_amd64.tar.gz \
 
