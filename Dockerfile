@@ -1,12 +1,12 @@
-FROM alpine:3.20
+FROM ubuntu:22.04
 
 WORKDIR /cloudreve
 
 COPY . .
 
-RUN apk update \
+RUN apt update \
 
-    && apk add --no-cache tzdata wget pgbouncer libpq-dev \
+    && apt install tzdata wget pgbouncer libpq-dev -y \
 
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 
