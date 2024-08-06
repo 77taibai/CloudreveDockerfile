@@ -14,6 +14,8 @@ RUN apk update \
 
     && tar -zxvf ./cloudreve_3.8.3_linux_amd64.tar.gz \
 
+    && touch start.sh
+
     && chmod +x ./start.sh
 
 EXPOSE 5212
