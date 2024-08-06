@@ -2,6 +2,8 @@ FROM alpine:3.20
 
 WORKDIR /cloudreve
 
+COPY . .
+
 RUN apk update \
 
     && apk add --no-cache tzdata wget pgbouncer libpq-dev \
@@ -13,8 +15,6 @@ RUN apk update \
     && wget https://github.com/cloudreve/Cloudreve/releases/download/3.8.3/cloudreve_3.8.3_linux_amd64.tar.gz \
 
     && tar -zxvf ./cloudreve_3.8.3_linux_amd64.tar.gz \
-
-    && touch start.sh \
 
     && chmod +x ./start.sh
 
