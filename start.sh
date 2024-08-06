@@ -31,10 +31,6 @@ touch /cloudreve/pgbouncer.log
 
 chmod 777 /cloudreve/pgbouncer.log
 
-touch /cloudreve/pgbouncer.pid
-
-chmod 777 /cloudreve/pgbouncer.pid
-
 echo "PgBouncer依赖文件创建完毕"
 
 pgbouncer --version
