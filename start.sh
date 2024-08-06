@@ -4,11 +4,11 @@ uname -a
 
 cat > /cloudreve/pgbouncer.ini <<-EOF
 [databases]
-koyebdb = $DB_HOST port=$DB_PORT dbname=$DB_NAME user=$DB_USER
+$DB_NAME = host=$DB_HOST port=$DB_PORT dbname=$DB_NAME
 
 [pgbouncer]
 listen_port = 37721
-listen_addr = 0.0.0.0
+listen_addr = 127.0.0.1
 auth_type = md5
 auth_file = /cloudreve/userlist.txt
 logfile = /cloudreve/pgbouncer.log
@@ -36,6 +36,8 @@ touch /cloudreve/pgbouncer.pid
 chmod 777 /cloudreve/pgbouncer.pid
 
 echo "PgBouncer依赖文件创建完毕"
+
+pgbouncer --version
 
 pgbouncer -d /cloudreve/pgbouncer.ini
 
