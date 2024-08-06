@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chmod -R 777 /cloudrve
+chmod -R 777 /cloudreve
 
 cat > /cloudreve/pgbouncer.ini <<-EOF
 [databases]
@@ -21,7 +21,7 @@ reserve_pool_size = 5
 dns_max_ttl = 15
 ignore_startup_parameters = extra_float_digits 
 client_tls_sslmode=disable
-client_tls_sslmode=require
+server_tls_sslmode=require
 EOF
 
 cat > /cloudreve/userlist.txt <<-EOF
