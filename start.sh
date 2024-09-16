@@ -14,7 +14,7 @@ HashIDSalt = $HASHIDSALT
 
 [Database]
 Type = postgres
-Port = $PORT
+Port = $DBPORT
 User = $DBUSER
 Password = $DBPASSWORD
 Host = $DBURL
