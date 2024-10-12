@@ -29,6 +29,10 @@ echo "准备运行Nginx"
 
 service nginx start
 
+echo "准备运行Aria2"
+
+aria2c --conf-path=/cloudreve/aria2.conf -D
+
 echo "准备运行Cloudreve"
 
 chmod +x /cloudreve/cloudreve
